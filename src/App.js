@@ -19,11 +19,15 @@ class App extends React.Component {
         <main>
           <Switch>
             {/* HERE NEED TO PASS THE PROPS */}
-            {/* <Route exact path="/" component={CountriesList}/> */}
-            <CountriesList data={this.state.countries} />
+            <Route exact path="/" render={() => <CountriesList data={this.state.countries}/>}/>
+            {/* <CountriesList data={countries}/> */}
 
-            <Route path="/country/:id" component={CountryDetails} />
-          </Switch>
+            <Route path="/country/:id" render={(props) => <CountryDetails {...props} data={this.state.countries}/>}/>
+            <Route path='/country/:id'>
+              <CountryDetails data={this.state.countries}/>
+            </Route>
+            </Switch>
+          
         </main>
       </div>
     );

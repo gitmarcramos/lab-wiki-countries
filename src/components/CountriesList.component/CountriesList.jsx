@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './CountriesList.css';
 
 export default function CountriesList(props) {
+  console.log("=======",props)
+
   const countries = props.data;
 
   return (
@@ -12,11 +14,12 @@ export default function CountriesList(props) {
         {countries.map((country, i) => {
           return (
             <>
-              <NavLink to={"/country/" + country.cca3} key={i}>
+              <Link to={"/country/" + country.cca3}>
                 <span>{country.flag}</span>
                 <li>{country.name.common}</li>
-              </NavLink>
+              </Link>
             </>
+
           );
         })}
       </ul>

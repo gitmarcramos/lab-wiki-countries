@@ -1,11 +1,12 @@
 import React from 'react';
-import countries from './../../countries.json'
+import {WithRouter} from 'react-router-dom'
 
-export default function CountryDetails(props){
+ function CountryDetails(props){
 
-    console.log(countries)
-
+    console.log('Countrydetails', props)
     return (
         <div>Hello</div>
     )
 }
+
+export default WithRouter(CountryDetails)
